@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="hooned" type="avaandmedHooned"/>
+
+  <xs:element name="kasutuslepingud" type="avaandmedKasutuslepingud"/>
+
+  <xs:element name="kinnisvarad" type="avaandmedKinnisvarad"/>
+
+  <xs:element name="lepingud" type="avaandmedLepingud"/>
+
+  <xs:element name="maad" type="avaandmedMaad"/>
+
+  <xs:element name="menetlused" type="avaandmedMenetlused"/>
+
+  <xs:element name="rajatised" type="avaandmedRajatised"/>
+
+  <xs:complexType name="avaandmedLepingud">
+    <xs:sequence>
+      <xs:element name="leping" type="lepinguAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="lepinguAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:long"/>
+      <xs:element name="liik" type="lepinguLiik"/>
+      <xs:element name="liikTekst" type="xs:string"/>
+      <xs:element name="numberDHS" type="xs:string" minOccurs="0"/>
+      <xs:element name="registreeritudDHS" type="xs:date" minOccurs="0"/>
+      <xs:element name="solmitud" type="xs:date" minOccurs="0"/>
+      <xs:element name="markused" type="xs:string" minOccurs="0"/>
+      <xs:element name="menetlus" type="seosTyyp"/>
+      <xs:element name="kehtibAlates" type="xs:date" minOccurs="0"/>
+      <xs:element name="kehtibKuni" type="xs:date" minOccurs="0"/>
+      <xs:element name="hind" type="xs:double" minOccurs="0"/>
+      <xs:element name="tahtaeg" type="xs:int" minOccurs="0"/>
+      <xs:element name="tahtaegLiik" type="xs:string" minOccurs="0"/>
+      <xs:element name="tahtaegLiikTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="lepinguOsapooled" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="osapool" type="osapooleAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lepinguObjektid" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="kinnisvara" type="seosTyyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="seosTyyp">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="varalepinguOsapooleAndmed">
+    <xs:complexContent>
+      <xs:extension base="osapooleAndmed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="osapooleAndmed">
+    <xs:sequence>
+      <xs:element name="rollLepingus" type="xs:string"/>
+      <xs:element name="isik" type="isikuAndmed" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="isikuAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string" minOccurs="0"/>
+      <xs:element name="nimi" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="avaandmedHooned">
+    <xs:sequence>
+      <xs:element name="hoone" type="hooneAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="hooneAndmed">
+    <xs:complexContent>
+      <xs:extension base="ehitiseAndmed">
+        <xs:sequence>
+          <xs:element name="netopind" type="xs:double" minOccurs="0"/>
+          <xs:element name="kasulikPind" type="xs:double" minOccurs="0"/>
+          <xs:element name="koetavPind" type="xs:double" minOccurs="0"/>
+          <xs:element name="abiruumidePind" type="xs:double" minOccurs="0"/>
+          <xs:element name="korruseid" type="xs:string" minOccurs="0"/>
+          <xs:element name="ehitisealunePind" type="xs:double" minOccurs="0"/>
+          <xs:element name="kultuurimalestisTunnus" type="xs:string" minOccurs="0"/>
+          <xs:element name="kultuurimalestisKp" type="xs:date" minOccurs="0"/>
+          <xs:element name="energiamargis" type="xs:string" minOccurs="0"/>
+          <xs:element name="margiseAeg" type="xs:date" minOccurs="0"/>
+          <xs:element name="energiaKuni" type="xs:date" minOccurs="0"/>
+          <xs:element name="etakekType" type="xs:string" minOccurs="0"/>
+          <xs:element name="etakekVal" type="xs:int" minOccurs="0"/>
+          <xs:element name="korraldusmudel" type="korraldusmudeliAndmed" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ehitiseAndmed">
+    <xs:complexContent>
+      <xs:extension base="osiseAndmed">
+        <xs:sequence>
+          <xs:element name="ehrKood" type="xs:string" minOccurs="0"/>
+          <xs:element name="nimetus" type="xs:string" minOccurs="0"/>
+          <xs:element name="valmimiseAasta" type="xs:int" minOccurs="0"/>
+          <xs:element name="peamineKasutus" type="xs:string" minOccurs="0"/>
+          <xs:element name="peamineKasutusTekst" type="xs:string" minOccurs="0"/>
+          <xs:element name="kasutusotstarbed" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="kasutusotstarve" type="kasutusotstarbeAndmed" minOccurs="0" maxOccurs="unbounded"/>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="seisund" type="xs:string" minOccurs="0"/>
+          <xs:element name="seisundTekst" type="xs:string" minOccurs="0"/>
+          <xs:element name="jaakvaartus" type="xs:double" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="osiseAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+      <xs:element name="kinnisvara" type="seosTyyp"/>
+      <xs:element name="rvrKood" type="xs:string" minOccurs="0"/>
+      <xs:element name="arveleVoetud" type="xs:date" minOccurs="0"/>
+      <xs:element name="kasRegistrivara" type="xs:boolean"/>
+      <xs:element name="kvrvaraOsa" type="xs:string" minOccurs="0"/>
+      <xs:element name="soetMaksumus" type="xs:double" minOccurs="0"/>
+      <xs:element name="ads_oid" type="xs:string" minOccurs="0"/>
+      <xs:element name="riik" type="xs:string" minOccurs="0"/>
+      <xs:element name="aadresstekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="x" type="xs:double" minOccurs="0"/>
+      <xs:element name="y" type="xs:double" minOccurs="0"/>
+      <xs:element name="aadressid" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="aadress" type="aadressiAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="versiooniKp" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="korraldusmudeliAndmed">
+    <xs:sequence>
+      <xs:element name="usaldusvaarsus" type="xs:string" minOccurs="0"/>
+      <xs:element name="haldur" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="haldLepinguNr" type="xs:string" minOccurs="0"/>
+      <xs:element name="haldLepingAlates" type="xs:date" minOccurs="0"/>
+      <xs:element name="haldLepingKuni" type="xs:date" minOccurs="0"/>
+      <xs:element name="korraldusmudel" type="xs:string" minOccurs="0"/>
+      <xs:element name="kavaKorraldusmudel" type="xs:string" minOccurs="0"/>
+      <xs:element name="rakendAasta" type="xs:int" minOccurs="0"/>
+      <xs:element name="rakendKvartal" type="xs:int" minOccurs="0"/>
+      <xs:element name="kavaPiirang" type="xs:string" minOccurs="0"/>
+      <xs:element name="piiranguTingimused" type="xs:string" minOccurs="0"/>
+      <xs:element name="piiranguAasta" type="xs:int" minOccurs="0"/>
+      <xs:element name="piiranguKvartal" type="xs:int" minOccurs="0"/>
+      <xs:element name="seisukord" type="xs:string" minOccurs="0"/>
+      <xs:element name="omakasutus" type="xs:double" minOccurs="0"/>
+      <xs:element name="kasutusseAntud" type="xs:double" minOccurs="0"/>
+      <xs:element name="vakants" type="xs:double" minOccurs="0"/>
+      <xs:element name="tarbimisandmetega" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="sisekliimaga" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="energiaallikas" type="xs:string" minOccurs="0"/>
+      <xs:element name="energiamargisPaigaldatud" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="miljoovaartuslik" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="vaartuslik" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="kultuurimalestis" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="muinsuskaitse" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="unesco" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="kultushoone" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="lyhikasutus" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="toostushoone" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ajutine" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="alla50m2" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="riigikaitseline" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="aasta" type="xs:int" minOccurs="0"/>
+      <xs:element name="korraldusmudeliMenetlus" type="xs:string" minOccurs="0"/>
+      <xs:element name="kinnitatud" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kasutusotstarbeAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+      <xs:element name="tekst" type="xs:string"/>
+      <xs:element name="pind" type="xs:double" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="aadressiAndmed">
+    <xs:sequence>
+      <xs:element name="koodaadress" type="xs:string" minOccurs="0"/>
+      <xs:element name="maakondKood" type="xs:string" minOccurs="0"/>
+      <xs:element name="maakondNimetus" type="xs:string" minOccurs="0"/>
+      <xs:element name="valdKood" type="xs:string" minOccurs="0"/>
+      <xs:element name="valdNimetus" type="xs:string" minOccurs="0"/>
+      <xs:element name="kylaKood" type="xs:string" minOccurs="0"/>
+      <xs:element name="kylaNimetus" type="xs:string" minOccurs="0"/>
+      <xs:element name="aadresstekst" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="avaandmedMaad">
+    <xs:sequence>
+      <xs:element name="maa" type="katastriyksuseAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="katastriyksuseAndmed">
+    <xs:complexContent>
+      <xs:extension base="osiseAndmed">
+        <xs:sequence>
+          <xs:element name="katastritunnus" type="xs:string"/>
+          <xs:element name="pindalaM2" type="xs:double"/>
+          <xs:element name="esmaRegKpv" type="xs:date" minOccurs="0"/>
+          <xs:element name="suletud" type="xs:date" minOccurs="0"/>
+          <xs:element name="sihtotstarveYks" type="xs:string" minOccurs="0"/>
+          <xs:element name="sihtotstarveYksProtsent" type="xs:int" minOccurs="0"/>
+          <xs:element name="sihtotstarveKaks" type="xs:string" minOccurs="0"/>
+          <xs:element name="sihtotstarveKaksProtsent" type="xs:int" minOccurs="0"/>
+          <xs:element name="sihtotstarveKolm" type="xs:string" minOccurs="0"/>
+          <xs:element name="sihtotstarveKolmProtsent" type="xs:int" minOccurs="0"/>
+          <xs:element name="ehitistealunePind" type="xs:double" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="avaandmedKinnisvarad">
+    <xs:sequence>
+      <xs:element name="kinnisvara" type="registrivaraAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="registrivaraAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+      <xs:element name="arveleVoetud" type="xs:date" minOccurs="0"/>
+      <xs:element name="arhiiviKantud" type="xs:date" minOccurs="0"/>
+      <xs:element name="objektiLiik" type="xs:string"/>
+      <xs:element name="nimetus" type="xs:string" minOccurs="0"/>
+      <xs:element name="aadress" type="xs:string" minOccurs="0"/>
+      <xs:element name="pysilingiUrl" type="xs:string"/>
+      <xs:element name="pindalaM2" type="xs:double" minOccurs="0"/>
+      <xs:element name="soetMaksumus" type="xs:double" minOccurs="0"/>
+      <xs:element name="jaakvaartus" type="xs:double" minOccurs="0"/>
+      <xs:element name="tekkeMenetlus" type="seosTyyp" minOccurs="0"/>
+      <xs:element name="valitseja" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="volitatud" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="kasutuseesmark" type="kasutuseesmarkTyyp" minOccurs="0"/>
+      <xs:element name="kinnistu" type="kinnisasjaAndmed" minOccurs="0"/>
+      <xs:element name="maad" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="maa" type="seosTyyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="hooned" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="hoone" type="seosTyyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="rajatised" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="rajatis" type="seosTyyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="kasutuslepingud" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="kasutusleping" type="seosTyyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="muinsuskaitse" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="muinsus" type="muinsuseAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="valitsemised" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="valitsemine" type="valitsemiseAjalugu" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kasutuseesmarkTyyp">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+      <xs:element name="tekst" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kinnisasjaAndmed">
+    <xs:sequence>
+      <xs:element name="registriosaNumber" type="xs:string"/>
+      <xs:element name="kinnistuLiik" type="xs:string" minOccurs="0"/>
+      <xs:element name="kinnistatud" type="xs:date" minOccurs="0"/>
+      <xs:element name="suletud" type="xs:date" minOccurs="0"/>
+      <xs:element name="aluskinnistu" type="xs:string" minOccurs="0"/>
+      <xs:element name="osa" type="xs:int" minOccurs="0"/>
+      <xs:element name="osadest" type="xs:int" minOccurs="0"/>
+      <xs:element name="korteriTahis" type="xs:string" minOccurs="0"/>
+      <xs:element name="reaalosa" type="xs:double" minOccurs="0"/>
+      <xs:element name="kinnisasjaKoosseis" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="maa" type="kinnisasjaKoosseisAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="kinnisasjaOmanikud" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="omand" type="kinnisasjaOmanikuAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kinnisasjaKoosseisAndmed">
+    <xs:sequence>
+      <xs:element name="katastritunnus" type="xs:string"/>
+      <xs:element name="kandeKpv" type="xs:date"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kinnisasjaOmanikuAndmed">
+    <xs:sequence>
+      <xs:element name="omanik" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="omandiliik" type="xs:string" minOccurs="0"/>
+      <xs:element name="osa" type="xs:int" minOccurs="0"/>
+      <xs:element name="osadest" type="xs:int" minOccurs="0"/>
+      <xs:element name="kandeKpv" type="xs:date" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="muinsuseAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string" minOccurs="0"/>
+      <xs:element name="nimi" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="valitsemiseAjalugu">
+    <xs:sequence>
+      <xs:element name="alates" type="xs:date" minOccurs="0"/>
+      <xs:element name="kuni" type="xs:date" minOccurs="0"/>
+      <xs:element name="valitseja" type="isikuAndmed"/>
+      <xs:element name="volitatud" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="kasutuseesmark" type="kasutuseesmarkTyyp" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="avaandmedRajatised">
+    <xs:sequence>
+      <xs:element name="rajatis" type="rajatiseAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="rajatiseAndmed">
+    <xs:complexContent>
+      <xs:extension base="ehitiseAndmed">
+        <xs:sequence>
+          <xs:element name="alunePind" type="xs:double" minOccurs="0"/>
+          <xs:element name="kubatuur" type="xs:int" minOccurs="0"/>
+          <xs:element name="korgus" type="xs:int" minOccurs="0"/>
+          <xs:element name="pikkus" type="xs:int" minOccurs="0"/>
+          <xs:element name="laius" type="xs:int" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="avaandmedKasutuslepingud">
+    <xs:sequence>
+      <xs:element name="kasutusleping" type="kasutuslepinguAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kasutuslepinguAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+      <xs:element name="suund" type="lepinguSuund"/>
+      <xs:element name="alamliik" type="xs:string" minOccurs="0"/>
+      <xs:element name="alamliikTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="versiooniNr" type="xs:int" minOccurs="0"/>
+      <xs:element name="versiooniAeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="menetlus" type="seosTyyp" minOccurs="0"/>
+      <xs:element name="leping" type="seosTyyp" minOccurs="0"/>
+      <xs:element name="kirjeldus" type="xs:string" minOccurs="0"/>
+      <xs:element name="kinnistu" type="xs:string" minOccurs="0"/>
+      <xs:element name="registreeritud" type="xs:date" minOccurs="0"/>
+      <xs:element name="kehtibAlates" type="xs:date" minOccurs="0"/>
+      <xs:element name="kehtibKuni" type="xs:date" minOccurs="0"/>
+      <xs:element name="tahtaeg" type="xs:int" minOccurs="0"/>
+      <xs:element name="tahtaegLiik" type="xs:string" minOccurs="0"/>
+      <xs:element name="tahtaegLiikTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="yleandmiseAeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="arhiivi_kantud" type="xs:date" minOccurs="0"/>
+      <xs:element name="lopetatud" type="xs:date" minOccurs="0"/>
+      <xs:element name="lopetamiseViis" type="xs:string" minOccurs="0"/>
+      <xs:element name="lopetamiseViisTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="saabEnnetahtaegLopet" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="ennetahtSankts" type="xs:string" minOccurs="0"/>
+      <xs:element name="trahviSumma" type="xs:double" minOccurs="0"/>
+      <xs:element name="saabUuendada" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="uuendamiseTahtaeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="energiaAruandlus" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="kasutustasuAlus" type="xs:string" minOccurs="0"/>
+      <xs:element name="kasutustasuAlusTyyp" type="kasutustasuAlus" minOccurs="0"/>
+      <xs:element name="saabAllkasut" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="Allkasut" type="xs:string" minOccurs="0"/>
+      <xs:element name="indeksiTyyp" type="xs:string" minOccurs="0"/>
+      <xs:element name="indeksiSuurus" type="xs:double" minOccurs="0"/>
+      <xs:element name="indeksAasta" type="xs:string" minOccurs="0"/>
+      <xs:element name="maxMuutus" type="xs:string" minOccurs="0"/>
+      <xs:element name="yyriMuutMarkus" type="xs:string" minOccurs="0"/>
+      <xs:element name="lepinguOsapooled" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="osapool" type="osapooleAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="kinnisvarad" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="kinnisvara" type="kasutatavaKinnisvaraAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="tasud" type="kasutuslepinguTasudAndmed" minOccurs="0"/>
+      <xs:element name="kohustused" type="kasutuslepinguKohustusedAndmed" minOccurs="0"/>
+      <xs:element name="teenused" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="teenus" type="kasutuslepinguTeenuseAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kasutuslepinguOsapooleAndmed">
+    <xs:complexContent>
+      <xs:extension base="osapooleAndmed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="kasutatavaKinnisvaraAndmed">
+    <xs:complexContent>
+      <xs:extension base="seosTyyp">
+        <xs:sequence>
+          <xs:element name="kirjeldus" type="xs:string" minOccurs="0"/>
+          <xs:element name="pindKokku" type="xs:double" minOccurs="0"/>
+          <xs:element name="hoonedTasu" type="xs:double" minOccurs="0"/>
+          <xs:element name="hoonedTasuYhikule" type="xs:double" minOccurs="0"/>
+          <xs:element name="parkimiskohti" type="xs:int" minOccurs="0"/>
+          <xs:element name="parkimiskohtiHoones" type="xs:int" minOccurs="0"/>
+          <xs:element name="hooneParkimHind" type="xs:double" minOccurs="0"/>
+          <xs:element name="hooneParkimMaksumus" type="xs:double" minOccurs="0"/>
+          <xs:element name="parkimiskohtiTerrit" type="xs:int" minOccurs="0"/>
+          <xs:element name="territParkimHind" type="xs:double" minOccurs="0"/>
+          <xs:element name="territParkimMaksumus" type="xs:double" minOccurs="0"/>
+          <xs:element name="ainukasutMaaPind" type="xs:double" minOccurs="0"/>
+          <xs:element name="ainukasutMaaHind" type="xs:double" minOccurs="0"/>
+          <xs:element name="ainukasutMaaMaksumus" type="xs:double" minOccurs="0"/>
+          <xs:element name="tasudKokku" type="xs:double" minOccurs="0"/>
+          <xs:element name="varad" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="maa" type="kasutatavaMaaAndmed"/>
+                  <xs:element name="hoone" type="kasutatavaHooneAndmed"/>
+                  <xs:element name="rajatis" type="kasutatavaRajatiseAndmed"/>
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="kasutatavaMaaAndmed">
+    <xs:complexContent>
+      <xs:extension base="kasutatavaPinnaAndmed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="kasutatavaPinnaAndmed">
+    <xs:complexContent>
+      <xs:extension base="seosTyyp">
+        <xs:sequence>
+          <xs:element name="kirjeldus" type="xs:string" minOccurs="0"/>
+          <xs:element name="pindKokku" type="xs:double" minOccurs="0"/>
+          <xs:element name="yhiskasutPind" type="xs:double" minOccurs="0"/>
+          <xs:element name="ainukasutPind" type="xs:double" minOccurs="0"/>
+          <xs:element name="tasu" type="xs:double" minOccurs="0"/>
+          <xs:element name="tasuYhikule" type="xs:double" minOccurs="0"/>
+          <xs:element name="tasudKokku" type="xs:double" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="kasutatavaHooneAndmed">
+    <xs:complexContent>
+      <xs:extension base="kasutatavaPinnaAndmed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="kasutatavaRajatiseAndmed">
+    <xs:complexContent>
+      <xs:extension base="kasutatavaPinnaAndmed">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="kasutuslepinguTasudAndmed">
+    <xs:sequence>
+      <xs:element name="kehtTasuKmta" type="xs:double" minOccurs="0"/>
+      <xs:element name="kehtivusperiood" type="xs:string" minOccurs="0"/>
+      <xs:element name="kehtKasutAlates" type="xs:date" minOccurs="0"/>
+      <xs:element name="kaibemaksuga" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="kaibemaks" type="xs:double" minOccurs="0"/>
+      <xs:element name="kehtTasuKmga" type="xs:double" minOccurs="0"/>
+      <xs:element name="tasumissagedus" type="xs:int" minOccurs="0"/>
+      <xs:element name="tasuAlgus" type="xs:date" minOccurs="0"/>
+      <xs:element name="arveKuupaev" type="xs:int" minOccurs="0"/>
+      <xs:element name="tasumiseKuupaev" type="xs:int" minOccurs="0"/>
+      <xs:element name="viivis" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kasutuslepinguKohustusedAndmed">
+    <xs:sequence>
+      <xs:element name="andjaInvKohustus" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="andjaInvKohustTahtaeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="andjaInvKohustusSumma" type="xs:double" minOccurs="0"/>
+      <xs:element name="saajaInvKohustus" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="saajaInvKohustTahtaeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="saajaInvKohustusSumma" type="xs:double" minOccurs="0"/>
+      <xs:element name="tagatisraha" type="xs:boolean" minOccurs="0"/>
+      <xs:element name="tagatisrahaSumma" type="xs:double" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="kasutuslepinguTeenuseAndmed">
+    <xs:sequence>
+      <xs:element name="grupp" type="xs:string"/>
+      <xs:element name="gruppTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="nimetus" type="xs:string"/>
+      <xs:element name="nimetusTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="mood" type="teenuseMood" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="avaandmedMenetlused">
+    <xs:sequence>
+      <xs:element name="menetlus" type="menetluseAndmed" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:string"/>
+      <xs:element name="valitseja" type="isikuAndmed"/>
+      <xs:element name="liik" type="xs:string"/>
+      <xs:element name="liikTekst" type="xs:string"/>
+      <xs:element name="alamliik" type="xs:string" minOccurs="0"/>
+      <xs:element name="alamliikTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="voorandamisviis" type="xs:string" minOccurs="0"/>
+      <xs:element name="voorandamisviisTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="kirjeldus" type="xs:string" minOccurs="0"/>
+      <xs:element name="algatatud" type="xs:date"/>
+      <xs:element name="lopetatud" type="xs:date"/>
+      <xs:element name="uusvalitseja" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="saaja" type="isikuAndmed" minOccurs="0"/>
+      <xs:element name="kasutusleping" type="seosTyyp" minOccurs="0"/>
+      <xs:element name="mahakanPohjus" type="xs:string" minOccurs="0"/>
+      <xs:element name="kinnisvarad" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="kinnisvara" type="menetluseKinnisvaraAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="lepingud" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="leping" type="seosTyyp" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="menetlusedokumendid" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="menetlusdokument" type="menetluseDokumendiAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="teated" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="teade" type="menetluseTeateAndmed" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseKinnisvaraAndmed">
+    <xs:complexContent>
+      <xs:extension base="seosTyyp">
+        <xs:sequence>
+          <xs:element name="teostatud" type="xs:date"/>
+          <xs:element name="leping" type="seosTyyp" minOccurs="0"/>
+          <xs:element name="volitatud" type="isikuAndmed" minOccurs="0"/>
+          <xs:element name="kasutuseesmark" type="kasutuseesmarkTyyp" minOccurs="0"/>
+          <xs:element name="varad" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:choice minOccurs="0" maxOccurs="unbounded">
+                  <xs:element name="maa" type="menetluseObjektiMaaAndmed"/>
+                  <xs:element name="hoone" type="menetluseObjektiHooneAndmed"/>
+                  <xs:element name="rajatis" type="menetluseObjektiRajatiseAndmed"/>
+                </xs:choice>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseObjektiMaaAndmed">
+    <xs:complexContent>
+      <xs:extension base="seosTyyp">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseObjektiHooneAndmed">
+    <xs:complexContent>
+      <xs:extension base="seosTyyp">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseObjektiRajatiseAndmed">
+    <xs:complexContent>
+      <xs:extension base="seosTyyp">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseDokumendiAndmed">
+    <xs:sequence>
+      <xs:element name="kood" type="xs:long" minOccurs="0"/>
+      <xs:element name="doknr" type="xs:string" minOccurs="0"/>
+      <xs:element name="aeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="liik" type="xs:string" minOccurs="0"/>
+      <xs:element name="liikTekst" type="xs:string" minOccurs="0"/>
+      <xs:element name="nimetus" type="xs:string" minOccurs="0"/>
+      <xs:element name="valjaandja" type="isikuAndmed" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="menetluseTeateAndmed">
+    <xs:sequence>
+      <xs:element name="saaja" type="isikuAndmed"/>
+      <xs:element name="liik" type="xs:string"/>
+      <xs:element name="liikTekst" type="xs:string"/>
+      <xs:element name="regnr" type="xs:string" minOccurs="0"/>
+      <xs:element name="saadetud" type="xs:date"/>
+      <xs:element name="sisu" type="xs:string"/>
+      <xs:element name="tahtaeg" type="xs:date" minOccurs="0"/>
+      <xs:element name="vastatud" type="xs:date" minOccurs="0"/>
+      <xs:element name="vastus" type="xs:string" minOccurs="0"/>
+      <xs:element name="menetlusdokument" type="seosTyyp" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="lepinguLiik">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="EELLEP"/>
+      <xs:enumeration value="KASUTAND"/>
+      <xs:enumeration value="KASUTVOT"/>
+      <xs:enumeration value="MUU"/>
+      <xs:enumeration value="OMAND"/>
+      <xs:enumeration value="VOORAND"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="lepinguSuund">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ANDMINE"/>
+      <xs:enumeration value="VOTMINE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="kasutustasuAlus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="avatud konkurents"/>
+      <xs:enumeration value="muu kokkulepe"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="teenuseMood">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="k&#245;rvalteenus"/>
+      <xs:enumeration value="&#252;&#252;riteenus"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
