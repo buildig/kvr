@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<maad>
+  <maa>
+    <kood>KL40030M1</kood>
+    <kinnisvara>
+      <kood>KL40030</kood>
+    </kinnisvara>
+    <arveleVoetud>2012-03-02</arveleVoetud>
+    <kasRegistrivara>false</kasRegistrivara>
+    <ads_oid>CU00444949</ads_oid>
+    <riik>Eesti</riik>
+    <aadresstekst>Harju maakond, Tallinn, Kesklinna linnaosa, Lõkke tn 5</aadresstekst>
+    <x>6588198.16</x>
+    <y>6588198.16</y>
+    <aadressid>
+      <aadress>
+        <koodaadress>3778402980000049K00001E6D00000000</koodaadress>
+        <maakondKood>37</maakondKood>
+        <maakondNimetus>Harju maakond</maakondNimetus>
+        <valdKood>784</valdKood>
+        <valdNimetus>Tallinn</valdNimetus>
+        <kylaKood>0298</kylaKood>
+        <kylaNimetus>Kesklinna linnaosa</kylaNimetus>
+        <aadresstekst>Harju maakond, Tallinn, Kesklinna linnaosa, Lõkke tn 5</aadresstekst>
+      </aadress>
+    </aadressid>
+    <versiooniKp>2014-10-24</versiooniKp>
+    <katastritunnus>78401:107:0390</katastritunnus>
+    <pindalaM2>2410</pindalaM2>
+    <esmaRegKpv>1997-03-21</esmaRegKpv>
+    <sihtotstarveYks>Ärimaa</sihtotstarveYks>
+    <sihtotstarveYksProtsent>100</sihtotstarveYksProtsent>
+  </maa>
+  <maa>
+    <kood>KL40032M1</kood>
+    <kinnisvara>
+      <kood>KL40032</kood>
+    </kinnisvara>
+    <arveleVoetud>2012-03-02</arveleVoetud>
+    <kasRegistrivara>false</kasRegistrivara>
+    <ads_oid>CU00444996</ads_oid>
+    <riik>Eesti</riik>
+    <aadresstekst>Harju maakond, Tallinn, Kesklinna linnaosa, Lõkke tn 3a</aadresstekst>
+    <x>6588167.52</x>
+    <y>6588167.52</y>
+    <aadressid>
+      <aadress>
+        <koodaadress>3778402980000049K00003AZF00000000</koodaadress>
+        <maakondKood>37</maakondKood>
+        <maakondNimetus>Harju maakond</maakondNimetus>
+        <valdKood>784</valdKood>
+        <valdNimetus>Tallinn</valdNimetus>
+        <kylaKood>0298</kylaKood>
+        <kylaNimetus>Kesklinna linnaosa</kylaNimetus>
+        <aadresstekst>Harju maakond, Tallinn, Kesklinna linnaosa, Lõkke tn 3a</aadresstekst>
+      </aadress>
+    </aadressid>
+    <versiooniKp>2014-10-24</versiooniKp>
+    <katastritunnus>78401:107:0900</katastritunnus>
+    <pindalaM2>375</pindalaM2>
+    <esmaRegKpv>2002-04-04</esmaRegKpv>
+    <sihtotstarveYks>Elamumaa</sihtotstarveYks>
+    <sihtotstarveYksProtsent>100</sihtotstarveYksProtsent>
+  </maa>
+  <maa>
+    <kood>KL41510M1</kood>
+    <kinnisvara>
+      <kood>KL41510</kood>
+    </kinnisvara>
+    <arveleVoetud>2011-07-21</arveleVoetud>
+    <kasRegistrivara>true</kasRegistrivara>
+    <kvrvaraOsa>11656</kvrvaraOsa>
+    <ads_oid>CU00491723</ads_oid>
+    <riik>Eesti</riik>
+    <aadresstekst>Tartu maakond, Tartu linn, Kalevi tn 1</aadresstekst>
+    <x>6473805.79</x>
+    <y>6473805.79</y>
+    <aadressid>
+      <aadress>
+        <koodaadress>787950000000004YW00002WQC00000000</koodaadress>
+        <maakondKood>78</maakondKood>
+        <maakondNimetus>Tartu maakond</maakondNimetus>
+        <valdKood>795</valdKood>
+        <valdNimetus>Tartu linn</valdNimetus>
+        <aadresstekst>Tartu maakond, Tartu linn, Kalevi tn 1</aadresstekst>
+      </aadress>
+    </aadressid>
+    <versiooniKp>2009-04-02</versiooniKp>
+    <katastritunnus>79507:065:0002</katastritunnus>
+    <pindalaM2>11656</pindalaM2>
+    <esmaRegKpv>1998-04-27</esmaRegKpv>
+    <sihtotstarveYks>Ühiskondlike ehitiste maa</sihtotstarveYks>
+    <sihtotstarveYksProtsent>100</sihtotstarveYksProtsent>
+  </maa>
+  <maa>
+    <kood>KL41541M1</kood>
+    <kinnisvara>
+      <kood>KL41541</kood>
+    </kinnisvara>
+    <arveleVoetud>2011-07-27</arveleVoetud>
+    <kasRegistrivara>false</kasRegistrivara>
+    <ads_oid>CU00491723</ads_oid>
+    <riik>Eesti</riik>
+    <aadresstekst>Tartu maakond, Tartu linn, Kalevi tn 1</aadresstekst>
+    <x>6473805.79</x>
+    <y>6473805.79</y>
+    <aadressid>
+      <aadress>
+        <koodaadress>787950000000004YW00002WQC00000000</koodaadress>
+        <maakondKood>78</maakondKood>
+        <maakondNimetus>Tartu maakond</maakondNimetus>
+        <valdKood>795</valdKood>
+        <valdNimetus>Tartu linn</valdNimetus>
+        <aadresstekst>Tartu maakond, Tartu linn, Kalevi tn 1</aadresstekst>
+      </aadress>
+    </aadressid>
+    <versiooniKp>2009-04-02</versiooniKp>
+    <katastritunnus>79507:065:0002</katastritunnus>
+    <pindalaM2>11656</pindalaM2>
+    <esmaRegKpv>1998-04-27</esmaRegKpv>
+    <sihtotstarveYks>Ühiskondlike ehitiste maa</sihtotstarveYks>
+    <sihtotstarveYksProtsent>100</sihtotstarveYksProtsent>
+  </maa>
+  <maa>
+    <kood>KL41709M1</kood>
+    <kinnisvara>
+      <kood>KL41709</kood>
+    </kinnisvara>
+    <arveleVoetud>2011-08-05</arveleVoetud>
+    <kasRegistrivara>false</kasRegistrivara>
+    <ads_oid>CU00491723</ads_oid>
+    <riik>Eesti</riik>
+    <aadresstekst>Tartu maakond, Tartu linn, Kalevi tn 1</aadresstekst>
+    <x>6473805.79</x>
+    <y>6473805.79</y>
+    <aadressid>
+      <aadress>
+        <koodaadress>787950000000004YW00002WQC00000000</koodaadress>
+        <maakondKood>78</maakondKood>
+        <maakondNimetus>Tartu maakond</maakondNimetus>
+        <valdKood>795</valdKood>
+        <valdNimetus>Tartu linn</valdNimetus>
+        <aadresstekst>Tartu maakond, Tartu linn, Kalevi tn 1</aadresstekst>
+      </aadress>
+    </aadressid>
+    <versiooniKp>2009-04-02</versiooniKp>
+    <katastritunnus>79507:065:0002</katastritunnus>
+    <pindalaM2>11656</pindalaM2>
+    <esmaRegKpv>1998-04-27</esmaRegKpv>
+    <sihtotstarveYks>Ühiskondlike ehitiste maa</sihtotstarveYks>
+    <sihtotstarveYksProtsent>100</sihtotstarveYksProtsent>
+  </maa>
+</maad>
