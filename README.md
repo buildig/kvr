@@ -11,6 +11,11 @@
 * https://riigivara.fin.ee/kvr/avaandmed/lepingud 
 * https://riigivara.fin.ee/kvr/avaandmed/kasutuslepingud
 
+
+## [hooned4326.geojson](https://github.com/buildig/rkvr/blob/master/hooned4326.geojson)
+
+<script src="https://embed.github.com/view/geojson/buildig/rkvr/master/hooned4326.geojson"></script>
+
 ```
 /20161030$ ls -lh
 total 399M
