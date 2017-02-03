@@ -29,4 +29,5 @@ total 399M
 ```
 
 [https://github.com/buildig/rkvr](https://github.com/buildig/rkvr)
+
 [Kaart suurelt](https://render.githubusercontent.com/view/geojson?url=https://raw.githubusercontent.com/buildig/rkvr/master/hooned4326.geojson)
